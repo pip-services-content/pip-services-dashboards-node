@@ -1,0 +1,1 @@
+[{"id":"1","type":"introduction","app":"Test App 1","version":null,"status":"new"},{"id":"2","tags":["TAG 1"],"all_tags":["tag1"],"type":"new release","app":"Test App 1","version":"1.0","status":"new"},{"id":"3","tags":["Tag 1","tag 2"],"all_tags":["tag1","tag2"],"type":"new release","app":"Test App 2","version":"1.1","status":"translating"}]
