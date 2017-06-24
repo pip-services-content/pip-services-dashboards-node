@@ -182,10 +182,7 @@ Now the client is ready to perform operations
 // Get a dashboard
 client.getDashboard(
     null,
-    { 
-        user_id: '123',
-        app: 'Test App 1'
-    },
+    '123', 'Test App 1', 'default',
     function (err, dashboard) {
         ...
     }
