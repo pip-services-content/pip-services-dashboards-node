@@ -9,5 +9,5 @@ export interface IDashboardsPersistence extends IGetter<DashboardV1, string>, IS
     getOneById(correlationId: string, id: string, callback: (err: any, item: DashboardV1) => void): void;
     set(correlationId: string, item: DashboardV1, callback: (err: any, item: DashboardV1) => void): void;
     deleteById(correlationId: string, id: string, callback: (err: any, item: DashboardV1) => void): void;
-    deleteByFilter(correlationId: string, filter: FilterParams, callback: (err: any, item: DashboardV1) => void): void;
+    deleteByFilter(correlationId: string, filter: FilterParams, callback: (err: any) => void): void;
 }

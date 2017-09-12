@@ -22,6 +22,6 @@ export interface IDashboardsPersistence
         callback: (err: any, item: DashboardV1) => void): void;
 
     deleteByFilter(correlationId: string, filter: FilterParams,
-        callback: (err: any, item: DashboardV1) => void): void;
+        callback: (err: any) => void): void;
 }
 
