@@ -1,4 +1,5 @@
 # set variable for git tag
+VERSION=$(grep -m1 version package.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
 TAG="v${VERSION}-${TRAVIS_BUILD_NUMBER}-rc"
 
 # update build version in upgrade-stage.sh
