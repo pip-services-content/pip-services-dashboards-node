@@ -4,15 +4,15 @@ COMPONENT=$(grep -m1 name package.json | tr -d '\r' | awk -F: '{ print $2 }' | s
 VERSION=$(grep -m1 version package.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
 IMAGE1="pipdevs/${COMPONENT}:${VERSION}-${TRAVIS_BUILD_NUMBER}-rc"
 IMAGE2="pipdevs/${COMPONENT}:latest"
-TAG="v${VERSION}-${TRAVIS_BUILD_NUMBER}-rc"
+#TAG="v${VERSION}-${TRAVIS_BUILD_NUMBER}-rc"
 
 # Any subsequent(*) commands which fail will cause the shell scrupt to exit immediately
 set -e
 set -o pipefail
 
 # Set tag on git repo
-git tag $TAG
-git status
+#git tag $TAG
+#git status
 #git push origin master --tags
 
 # Push production image to docker registry

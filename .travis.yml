@@ -16,16 +16,18 @@ install:
   - ./test.sh
   - ./package.sh
 #  - chmod +x git_login.sh
-  - ./git_login.sh
+#  - ./git_login.sh
   - ./publish.sh
 
 script: echo "npm test temporarily disabled"
 
 after_success:
-  - sed -i -e "s/BUILD_NUMBER=[0-9]*-rc/BUILD_NUMBER=$TRAVIS_BUILD_NUMBER-rc/g" ./deploy_scripts/upgrade-stage.sh
-  - git add ./deploy_scripts/upgrade-stage.sh
-  - git commit -m "Travis build $TRAVIS_BUILD_NUMBER updated build number in stage deploy file [skip ci]" 
-  - git push origin master
+#  - sed -i -e "s/BUILD_NUMBER=[0-9]*-rc/BUILD_NUMBER=$TRAVIS_BUILD_NUMBER-rc/g" ./deploy_scripts/upgrade-stage.sh
+#  - git add ./deploy_scripts/upgrade-stage.sh
+#  - git commit -m "Travis build $TRAVIS_BUILD_NUMBER updated build number in stage deploy file [skip ci]" 
+#  - git push origin master
+  - chmod +x git_login.sh
+  - ./update_git.sh
 
 after_script:
   - ./clean.sh
