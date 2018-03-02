@@ -6,8 +6,8 @@ IMAGE="pipdevs/${COMPONENT}:${VERSION}-${TRAVIS_BUILD_NUMBER}-test"
 CONTAINER="${COMPONENT}"
 
 # Any subsequent(*) commands which fail will cause the shell scrupt to exit immediately
-set -e
-set -o pipefail
+#set -e
+#set -o pipefail
 
 export IMAGE
 
