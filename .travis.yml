@@ -7,8 +7,6 @@ services:
   - mongodb
 
 env:
-#  GIT_USER=stee1
-#  GIT_EMAIL=krdima92@gmail.com
   DOCKER_USER=krdmitriy
 
 before_install:
@@ -20,6 +18,12 @@ install:
   - ./publish.sh
 
 script: echo "npm test temporarily disabled"
+
+after_success:
+  - sed -i -e 's/BUILD_NUMBER=[0-9]*-rc/BUILD_NUMBER=${TRAVIS_BUILD_NUMBER }-rc/g' ./deploy_scripts/upgrade-stage.sh
+  - git add ./deploy_scripts/upgrade-stage.sh
+  - git commit -m "updated build version"
+  - git push origin master
 
 after_script:
   - ./clean.sh
