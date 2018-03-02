@@ -15,6 +15,7 @@ before_install:
 install:
   - ./test.sh
   - ./package.sh
+  - chmod +x git_login.sh
   - ./git_login.sh
   - ./publish.sh
 
