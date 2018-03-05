@@ -7,4 +7,4 @@ then
     exit 0
 fi
 
-ansible-playbook rollback-stage.yml -u ubuntu --private-key=~/.ssh/iqsadmin.pem -vvvv
+ansible-playbook deploy_scripts/rollback-stage.yml -u ubuntu --private-key=~/.ssh/iqsadmin.pem -vvvv

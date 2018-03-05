@@ -5,4 +5,4 @@ VERSION=$(grep -m1 version ../package.json | tr -d '\r' | awk -F: '{ print $2 }'
 #BUILD_NUMBER=${BUILD_NUMBER-0}
 BUILD_NUMBER=30-rc
 
-ansible-playbook upgrade-stage.yml -u ubuntu -e COMPONENT=$COMPONENT -e VERSION=$VERSION -e BUILD_NUMBER=$BUILD_NUMBER --private-key=~/.ssh/iqsadmin.pem -vvvv
+ansible-playbook deploy_scripts/upgrade-stage.yml -u ubuntu -e COMPONENT=$COMPONENT -e VERSION=$VERSION -e BUILD_NUMBER=$BUILD_NUMBER --private-key=~/.ssh/iqsadmin.pem -vvvv
