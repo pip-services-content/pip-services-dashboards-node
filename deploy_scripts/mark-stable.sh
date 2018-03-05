@@ -22,7 +22,8 @@ set -o pipefail
 #git push --tags
 
 # Build docker image
-docker build -f docker/Dockerfile -t ${IMAGE} .
+#docker build -f docker/Dockerfile -t ${IMAGE} .
+docker tag $IMAGE-rc $IMAGE
 
 # Push production image to docker registry
 cat docker/my_password.txt | docker login --username $DOCKER_USER --password-stdin
