@@ -28,11 +28,10 @@ docker pull $STAGE_IMAGE
 docker tag $STAGE_IMAGE $PROD_IMAGE
 
 # Push production image to docker registry
-echo $DOCKER_USER
-#cat docker/my_password.txt | docker login --username $DOCKER_USER --password-stdin
 docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 docker push $PROD_IMAGE
 
 # cleanup
 docker rmi $STAGE_IMAGE --force
+docker rmi $PROD_IMAGE --force
 docker image prune --force
