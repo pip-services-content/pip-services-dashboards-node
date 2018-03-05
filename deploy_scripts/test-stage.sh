@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec iqs-e2e powershell ~/tracker-ps-ws/tracker-simulation-ps/src/Test/Test-IqsDashboards.ps1 -ServerUrl "api.positron.stage.iquipsys.net"
+docker exec iqs-e2e powershell /iqs-management-ps-ws/iqs-simulation-ps/src/Test/Test-IqsDashboards.ps1 -ServerUrl "api.positron.stage.iquipsys.net"
