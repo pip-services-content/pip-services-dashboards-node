@@ -10,7 +10,8 @@ fi
 COMPONENT=$(grep -m1 name package.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
 VERSION=$(grep -m1 version package.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
 BUILD_NUMBER=$(grep BUILD_NUMBER deploy_scripts/upgrade-stage.sh | grep rc | sed 's/[^0-9]//g')
-IMAGE="pipdevs/${COMPONENT}:${VERSION}-${BUILD_NUMBER}"
+STAGE_IMAGE="pipdevs/${COMPONENT}:${VERSION}-${BUILD_NUMBER}-rc"
+PROD_IMAGE="pipdevs/${COMPONENT}:${VERSION}-${BUILD_NUMBER}"
 TAG="v${VERSION}-${BUILD_NUMBER}"
 
 # Any subsequent(*) commands which fail will cause the shell scrupt to exit immediately
@@ -23,8 +24,13 @@ set -o pipefail
 
 # Build docker image
 #docker build -f docker/Dockerfile -t ${IMAGE} .
-docker tag $IMAGE-rc $IMAGE
+docker pull $STAGE_IMAGE
+docker tag $STAGE_IMAGE $PROD_IMAGE
 
 # Push production image to docker registry
 cat docker/my_password.txt | docker login --username $DOCKER_USER --password-stdin
-docker push $IMAGE
+docker push $PROD_IMAGE
+
+# cleanup
+docker rmi $STAGE_IMAGE --force
+docker image prune --force
