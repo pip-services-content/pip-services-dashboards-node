@@ -17,17 +17,12 @@ TAG="v${VERSION}-${BUILD_NUMBER}"
 set -e
 set -o pipefail
 
-git remote -v
-git remote rm origin 
-git remote add origin "https://stee1@github.com/pip-services-content/pip-services-dashboards-node.git"
-git remote -v
-
 # Set tag on git repo
 #git tag $TAG
 #git push --tags
 
 # Build docker image
-docker build -f ../docker/Dockerfile -t ${IMAGE} .
+docker build -f docker/Dockerfile -t ${IMAGE} .
 
 # Push production image to docker registry
 cat docker/my_password.txt | docker login --username $DOCKER_USER --password-stdin
