@@ -17,11 +17,17 @@ TAG="v${VERSION}-${BUILD_NUMBER}"
 set -e
 set -o pipefail
 
-# Set tag on git repo
-#git tag $TAG
-#git push --tags
+# Configure git and set production tag on git repo
+git config --global user.email "krdima92@gmail.com" 
+git config --global user.name "stee1" 
 
-# Build docker image
+git remote rm origin 
+git remote add origin "https://stee1:${GITHUB_API_KEY}@github.com/pip-services-content/pip-services-quotes-node.git"
+
+git tag $TAG
+git push --tags
+
+# Pull docker image and tag it is production
 #docker build -f docker/Dockerfile -t ${IMAGE} .
 docker pull $STAGE_IMAGE
 docker tag $STAGE_IMAGE $PROD_IMAGE
