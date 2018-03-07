@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $TEST_PASSED == "false" ]
+if [ ${TEST_PASSED} == "false" ]
 then
     echo Test failed. This step skipped.
     exit 0
@@ -13,7 +13,7 @@ STAGE_IMAGE="pipdevs/${COMPONENT}:${VERSION}-${BUILD_NUMBER}-rc"
 PROD_IMAGE="pipdevs/${COMPONENT}:${VERSION}-${BUILD_NUMBER}"
 TAG="v${VERSION}-${BUILD_NUMBER}"
 
-# Any subsequent(*) commands which fail will cause the shell scrupt to exit immediately
+# Any subsequent(*) commands which fail will cause the shell script to exit immediately
 set -e
 set -o pipefail
 
@@ -24,19 +24,19 @@ git config --global user.name "stee1"
 git remote rm origin 
 git remote add origin "https://stee1:${GITHUB_API_KEY}@github.com/pip-services-content/${COMPONENT}.git"
 
-git tag $TAG
+git tag ${TAG}
 git push --tags
 
-# Pull docker image and tag it is production
+# Build docker image
 #docker build -f docker/Dockerfile -t ${IMAGE} .
-docker pull $STAGE_IMAGE
-docker tag $STAGE_IMAGE $PROD_IMAGE
+docker pull ${STAGE_IMAGE}
+docker tag ${STAGE_IMAGE} ${PROD_IMAGE}
 
 # Push production image to docker registry
-docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-docker push $PROD_IMAGE
+docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+docker push ${PROD_IMAGE}
 
-# cleanup
-docker rmi $STAGE_IMAGE --force
-docker rmi $PROD_IMAGE --force
+# Cleanup
+docker rmi ${STAGE_IMAGE} --force
+docker rmi ${PROD_IMAGE} --force
 docker image prune --force
