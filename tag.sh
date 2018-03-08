@@ -6,7 +6,7 @@ VERSION=$(grep -m1 version package.json | tr -d '\r' | awk -F: '{ print $2 }' | 
 TAG="v${VERSION}-${TRAVIS_BUILD_NUMBER}-rc"
 
 # Update build number in upgrade-stage.sh
-sed -i -e "s/BUILD_NUMBER=[0-9]*-rc/BUILD_NUMBER=${TRAVIS_BUILD_NUMBER}-rc/g" ./k8s/upgrade-stage.sh
+sed -i -e "s/[0-9]*/${TRAVIS_BUILD_NUMBER}/g" buildnumber
 
 # Configure git
 git config --global user.email "krdima92@gmail.com" 
