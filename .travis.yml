@@ -24,7 +24,7 @@ script:
 
 after_success:
   - ./tag.sh
-  - ./release.sh
+  #- ./release.sh
 
 after_script:
   - ./clean.sh
