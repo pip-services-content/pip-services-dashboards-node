@@ -7,8 +7,13 @@ services:
   - mongodb
 
 deploy:
+  skip_cleanup: true
+  provider: releases
+  file:
+    - "README.md"
   on:
     tags: false
+    all_branches: true
 
 env:
   DOCKER_USER=krdmitriy
