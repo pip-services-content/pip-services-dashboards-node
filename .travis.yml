@@ -8,6 +8,8 @@ services:
 
 env:
   DOCKER_USER=krdmitriy
+  NPM_USER=pipdeveloper
+  NPM_EMAIL=pipdevs@gmail.com
 
 before_install:
   - ./build.sh
@@ -22,6 +24,7 @@ script:
 
 after_success:
   - ./tag.sh
+  - ./release.sh
 
 after_script:
   - ./clean.sh
