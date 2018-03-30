@@ -6,6 +6,10 @@ node_js:
 services:
   - mongodb
 
+deploy:
+  on:
+    tags: false
+
 env:
   DOCKER_USER=krdmitriy
   NPM_USER=pipdeveloper
