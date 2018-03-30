@@ -15,5 +15,5 @@ git remote rm origin
 git remote add origin "https://stee1:${GITHUB_API_KEY}@github.com/pip-services-content/${COMPONENT}.git"
 
 # Set git tag
-git tag ${TAG}
+git tag ${TAG} -a -m "Generated tag from TravisCI for build #$TRAVIS_BUILD_NUMBER"
 git push --tags
