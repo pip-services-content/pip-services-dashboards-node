@@ -36,8 +36,8 @@ exports.DashboardsMongoDbSchema = function (collection) {
     });
     let schema = new mongoose_1.Schema({
         /* Identification */
-        _id: { type: String, unique: true },
-        user_id: { type: String, required: true },
+        _id: { type: String },
+        user_id: { type: String, required: true, index: true },
         app: { type: String, required: true },
         kind: { type: String, required: false },
         /* Content */
