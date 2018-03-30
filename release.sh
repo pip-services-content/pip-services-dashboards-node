@@ -15,4 +15,5 @@ npm install -g npm-cli-login
 npm-cli-login
 fi
 
-npm publish --tag ${TAG}
+#npm publish --tag ${TAG}
+npm publish
