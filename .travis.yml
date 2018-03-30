@@ -10,6 +10,8 @@ branches:
   except:
     - /^v[0-9]/
 
+if: tag IS blank
+
 env:
   DOCKER_USER=krdmitriy
   NPM_USER=pipdeveloper
@@ -27,7 +29,7 @@ script:
   echo "npm test temporarily disabled"
 
 after_success:
-  #- ./tag.sh
+  - ./tag.sh
   #- ./release.sh
 
 after_script:
