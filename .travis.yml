@@ -6,6 +6,10 @@ node_js:
 services:
   - mongodb
 
+branches:
+  except:
+    - /^v[0-9]/
+
 env:
   DOCKER_USER=krdmitriy
   NPM_USER=pipdeveloper
