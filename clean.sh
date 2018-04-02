@@ -1,10 +1,10 @@
 #!/bin/bash
 
-COMPONENT=$(grep -m1 name package.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
-VERSION=$(grep -m1 version package.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
-BUILD_IMAGE="pipdevs/${COMPONENT}:${VERSION}-${TRAVIS_BUILD_NUMBER}-build"
-TEST_IMAGE="pipdevs/${COMPONENT}:${VERSION}-${TRAVIS_BUILD_NUMBER}-test"
-STAGE_IMAGE="pipdevs/${COMPONENT}:${VERSION}-${TRAVIS_BUILD_NUMBER}-rc"
+COMPONENT=$(grep -m1 name component.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
+VERSION=$(grep -m1 version component.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
+BUILD_IMAGE="${REGISTRY}/${COMPONENT}:${VERSION}-${TRAVIS_BUILD_NUMBER}-build"
+TEST_IMAGE="${REGISTRY}/${COMPONENT}:${VERSION}-${TRAVIS_BUILD_NUMBER}-test"
+STAGE_IMAGE="${REGISTRY}/${COMPONENT}:${VERSION}-${TRAVIS_BUILD_NUMBER}-rc"
 
 rm -rf ./node_modules
 rm -rf ./obj

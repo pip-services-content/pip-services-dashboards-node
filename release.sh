@@ -1,8 +1,5 @@
 #!/bin/bash
 
-VERSION=$(grep -m1 version package.json | tr -d '\r' | awk -F: '{ print $2 }' | sed 's/[", ]//g')
-TAG="v${VERSION}-${TRAVIS_BUILD_NUMBER}-rc"
-
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
 set -e
 set -o pipefail
@@ -15,5 +12,13 @@ npm install -g npm-cli-login
 npm-cli-login
 fi
 
-#?npm version patch
+npm version patch
+
+# Update version in component.json
+awk -F'["]' -v OFS='"'  '/"version":/{
+    split($4,a,".");
+    $4=a[1]"."a[2]"."a[3]+1
+    }
+;1' component.json > >(sleep 1 && cat > component.json)
+
 npm publish
