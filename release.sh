@@ -21,4 +21,9 @@ awk -F'["]' -v OFS='"'  '/"version":/{
     }
 ;1' component.json > >(sleep 1 && cat > component.json)
 
-npm publish
+# Commit upgraded build number and push
+#git add component.json
+#git commit -m "Travis build#${TRAVIS_BUILD_NUMBER} updated build number [skip ci]" 
+#git push origin master
+
+npm publish --skip-git
