@@ -1,6 +1,6 @@
 import { FilterParams } from 'pip-services-commons-node';
 import { PagingParams } from 'pip-services-commons-node';
-import { IdentifiableMongoDbPersistence } from 'pip-services-data-node';
+import { IdentifiableMongoDbPersistence } from 'pip-services-oss-node';
 import { DashboardV1 } from '../data/version1/DashboardV1';
 import { IDashboardsPersistence } from './IDashboardsPersistence';
 export declare class DashboardsMongoDbPersistence extends IdentifiableMongoDbPersistence<DashboardV1, string> implements IDashboardsPersistence {
