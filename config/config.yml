@@ -23,8 +23,10 @@
   level: "trace"
 
 # Prometheus performance counters
-- descriptor: "pip-services:counters:prometheus:default:1.0"
 {{#if PUSHGATEWAY_METRICS_ENABLED}}
+- descriptor: "pip-services:counters:prometheus:default:1.0"
+  level: "trace"
+  interval: "30000"  
   connection:
     protocol: http
     host: {{PUSHGATEWAY_METRICS_SERVICE_HOST}}
@@ -82,4 +84,3 @@
 
 # Prometheus metrics service
 - descriptor: "pip-services:metrics-service:prometheus:default:1.0"
-
