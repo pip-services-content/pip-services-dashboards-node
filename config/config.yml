@@ -12,7 +12,6 @@
 # ElasticSearch logger
 - descriptor: "pip-services:logger:elasticsearch:default:1.0"
   level: "info"
-  index: "pip-services-dashboards"
   connection:
     protocol: http
     host: {{ELASTICSEARCH_LOGGING_SERVICE_HOST}}
