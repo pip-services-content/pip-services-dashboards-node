@@ -15,10 +15,10 @@ if ($env:NPM_USER -ne "") {
 
 npm version patch
 
+npm publish
+
 # Update version in component.json
 $version = $component.version.Split(".")
 $version[2] = [int]$version[2] + 1
 $component.version = $version -join "."
 $component | ConvertTo-Json | Set-Content -Path "component.json"
-
-npm publish
