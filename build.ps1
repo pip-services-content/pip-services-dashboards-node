@@ -17,5 +17,5 @@ docker build -f docker/Dockerfile.build -t $buildImage .
 
 # Create and copy compiled files, then destroy
 docker create --name $container $buildImage
-docker cp "$($container):/obj" ./obj
+docker cp "$($container):/app/obj" ./obj
 docker rm $container
