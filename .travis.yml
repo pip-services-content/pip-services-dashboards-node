@@ -24,7 +24,7 @@ before_install:
   - curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
   - sudo apt-get update
   - wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu55_55.1-7ubuntu0.4_amd64.deb
-  - sudo apt-get update && sudo apt-get upgrade
+  - sudo apt-get upgrade
   - sudo apt-get install build-essential
   - sudo apt-get install aptitude
   - sudo apt-get install libstdc++6
