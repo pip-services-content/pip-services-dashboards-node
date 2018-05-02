@@ -26,8 +26,8 @@ before_install:
   - wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu55_55.1-7ubuntu0.4_amd64.deb
   - sudo apt-get install build-essential
   - sudo apt-get install aptitude
-  - sudo apt-get install libstdc++6
-  - sudo apt install ./libicu55_55.1-7ubuntu0.4_amd64.deb
+  - sudo apt-get install --force-latest-deps libstdc++6
+  - sudo apt-get install --force-latest-deps ./libicu55_55.1-7ubuntu0.4_amd64.deb
   - sudo apt-get install -y powershell
   - echo "Powershell installed"
   - ./build.ps1
