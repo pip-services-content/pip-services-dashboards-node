@@ -3,6 +3,9 @@ sudo: true
 node_js:
   - "node"
 
+os:
+  - linux
+
 services:
   - mongodb
 
@@ -23,8 +26,8 @@ before_install:
   - curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
   - curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
   - sudo apt-get update
-  - wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu55_55.1-7ubuntu0.4_amd64.deb
-  - sudo apt install ./libicu55_55.1-7ubuntu0.4_amd64.deb
+  #- wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu55_55.1-7ubuntu0.4_amd64.deb
+  #- sudo apt install ./libicu55_55.1-7ubuntu0.4_amd64.deb
   - sudo apt-get install -y powershell
   - echo "Powershell installed"
   - ./build.ps1
