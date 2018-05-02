@@ -4,7 +4,7 @@ Set-StrictMode -Version latest
 $ErrorActionPreference = "Stop"
 
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
-$buildImage="$($component.registry)/$($component.name):$($component.version)-build"
+$buildImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-build"
 $container=$component.name
 
 # Remove build files

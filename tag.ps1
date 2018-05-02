@@ -4,7 +4,7 @@ Set-StrictMode -Version latest
 $ErrorActionPreference = "Stop"
 
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
-$tag="v$($component.version)-$($component.build)-rc"
+$tag="v$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-rc"
 
 # Configure git
 git config --global user.email "pipdevs@gmail.com" 

@@ -4,7 +4,7 @@ Set-StrictMode -Version latest
 $ErrorActionPreference = "Stop"
 
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
-$stageImage="$($component.registry)/$($component.name):$($component.version)-$($component.build)-rc"
+$stageImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-rc"
 
 # Build docker image
 docker build -f docker/Dockerfile -t $stageImage .

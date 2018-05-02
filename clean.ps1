@@ -1,9 +1,9 @@
 #!/usr/bin/env pwsh
 
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
-$buildImage="$($component.registry)/$($component.name):$($component.version)-build"
-$testImage="$($component.registry)/$($component.name):$($component.version)-test"
-$stageImage="$($component.registry)/$($component.name):$($component.version)-$($component.build)-rc"
+$buildImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-build"
+$testImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-test"
+$stageImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-rc"
 
 # Clean up build directories
 Get-ChildItem -Path "." -Include "obj" -Recurse | foreach($_) { Remove-Item -Force -Recurse $_.FullName }
