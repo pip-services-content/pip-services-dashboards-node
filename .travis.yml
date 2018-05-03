@@ -19,30 +19,19 @@ env:
   REGISTRY=pipdevs
 
 before_install:
-  - echo "Installing powershell..."
-  - curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  - curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
-  - sudo apt-get update
-  - wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu55_55.1-7ubuntu0.4_amd64.deb
-  - sudo apt-get install build-essential
-  - sudo apt-get install aptitude
-  - sudo apt-get install --force-latest-deps libstdc++6
-  - sudo apt-get install --force-latest-deps ./libicu55_55.1-7ubuntu0.4_amd64.deb
-  - sudo apt-get install -y powershell
-  - echo "Powershell installed"
-  - ./build.ps1
+  - ./build.sh
 
 install:
-  - ./test.ps1
-  - ./package.ps1
-  - ./publish.ps1
+  - ./test.sh
+  - ./package.sh
+  - ./publish.sh
 
 script: 
   echo "npm test temporarily disabled"
 
 after_success:
-  - ./tag.ps1
-  - ./release.ps1
+  - ./tag.sh
+  - ./release.sh
 
 after_script:
-  - ./clean.ps1
+  - ./clean.sh

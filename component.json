@@ -1,6 +1,4 @@
 {
     "name":  "pip-services-dashboards-node",
-    "version":  "1.0.2",
-    "registry":  "registry.gitlab.com/iqs-external",
-    "build":  "98"
+    "version":  "1.0.2"
 }
