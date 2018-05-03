@@ -16,14 +16,8 @@ env:
   DOCKER_USER=krdmitriy
   NPM_USER=pipdeveloper
   NPM_EMAIL=pipdevs@gmail.com
-  REGISTRY=pipdevs
 
 before_install:
-  - uname -a
-  #- curl -SL https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.9/powershell_6.0.0-alpha.9-1ubuntu1.14.04.1_amd64.deb -o powershell_6.0.0-alpha.9-1ubuntu1.14.04.1_amd64.deb
-  #- sudo apt-get install libunwind8 libicu52
-  #- sudo dpkg -i powershell_6.0.0-alpha.9-1ubuntu1.14.04.1_amd64.deb
-  # Import the public repository GPG keys
   - curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
   - curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
   - sudo apt-get update
@@ -31,16 +25,16 @@ before_install:
   - ./build.ps1
 
 install:
-  - ./test.sh
-  - ./package.sh
-  - ./publish.sh
+  - ./test.ps1
+  - ./package.ps1
+  - ./publish.ps1
 
 script: 
   echo "npm test temporarily disabled"
 
 after_success:
-  - ./tag.sh
-  - ./release.sh
+  - ./tag.ps1
+  - ./release.ps1
 
 after_script:
-  - ./clean.sh
+  - ./clean.ps1
