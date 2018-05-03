@@ -6,15 +6,15 @@ $ErrorActionPreference = "Stop"
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 
 # Login to npm
-if ($env:NPM_USER -ne "") {
+if (-not (Test-Path env:NPM_USER)) {
     npm login   
 } else {
     npm install -g npm-cli-login
     npm-cli-login
 }
 
+# Increase version and publish to npm repository
 npm version patch
-
 npm publish
 
 # Update version in component.json
