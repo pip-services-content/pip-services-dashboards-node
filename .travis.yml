@@ -27,9 +27,9 @@ before_install:
 install:
   - ./test.ps1
   - ./package.ps1
+  - ./publish.ps1
   - ./release.ps1
   - ./tag.ps1
-  - ./publish.ps1
 
 
 script: 
