@@ -14,12 +14,16 @@ if (-not (Test-Path env:NPM_USER)) {
     npm-cli-login
 }
 
-# Increase version and publish to npm repository
-npm version patch
-npm publish
+# Configure git
+git config --global user.email "pipdevs@gmail.com" 
+git config --global user.name "pipdeveloper" 
 
-# Update version in component.json
-$version = $component.version.Split(".")
-$version[2] = [int]$version[2] + 1
-$component.version = $version -join "."
-$component | ConvertTo-Json | Set-Content -Path "component.json"
+git remote rm origin 
+git remote add origin "https://pipdeveloper:$($env:GITHUB_API_KEY)@github.com/pip-services-content/$($component.name).git"
+
+git add ./obj/*
+git commit -m "project build by Travis CI [skip ci]"
+git push
+
+# Publish to npm repository
+npm publish

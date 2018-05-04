@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 
 # Get component data and set necessary variables
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
-$tag="v$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-rc"
+$tag="v$($component.version)-$($env:TRAVIS_BUILD_NUMBER)"
 
 # Configure git
 git config --global user.email "pipdevs@gmail.com" 
