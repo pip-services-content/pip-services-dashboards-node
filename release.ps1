@@ -18,8 +18,7 @@ if (-not (Test-Path env:NPM_USER)) {
 git config --global user.email "pipdevs@gmail.com" 
 git config --global user.name "pipdeveloper" 
 
-git remote rm origin 
-git remote add origin "https://pipdeveloper:$($env:GITHUB_API_KEY)@github.com/pip-services-content/$($component.name).git"
+git remote set-url "https://pipdeveloper:$($env:GITHUB_API_KEY)@github.com/pip-services-content/$($component.name).git"
 
 git add ./obj/*
 git commit -m "project build by Travis CI [skip ci]"
