@@ -3,6 +3,7 @@
 Set-StrictMode -Version latest
 $ErrorActionPreference = "Stop"
 
+# Get component data and set necessary variables
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 $testImage="$($component.registry)/$($component.name):$($component.version)-test"
 

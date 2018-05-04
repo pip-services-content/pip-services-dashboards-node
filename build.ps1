@@ -3,6 +3,7 @@
 Set-StrictMode -Version latest
 $ErrorActionPreference = "Stop"
 
+# Get component data and set necessary variables
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 $buildImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-build"
 $container=$component.name

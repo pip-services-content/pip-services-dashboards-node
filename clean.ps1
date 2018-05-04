@@ -1,5 +1,6 @@
 #!/usr/bin/env pwsh
 
+# Get component data and set necessary variables
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 $buildImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-build"
 $testImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-test"

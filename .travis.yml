@@ -27,14 +27,15 @@ before_install:
 install:
   - ./test.ps1
   - ./package.ps1
-  - ./publish.ps1
+  - ./release.ps1
+  - ./tag.ps1
+
 
 script: 
   echo "npm test temporarily disabled"
 
 after_success:
-  - ./tag.ps1
-  - ./release.ps1
+  - ./publish.ps1
 
 after_script:
   - ./clean.ps1

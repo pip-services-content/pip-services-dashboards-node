@@ -3,6 +3,7 @@
 Set-StrictMode -Version latest
 $ErrorActionPreference = "Stop"
 
+# Get component data
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 
 # Login to npm

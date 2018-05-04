@@ -3,6 +3,7 @@
 Set-StrictMode -Version latest
 $ErrorActionPreference = "Stop"
 
+# Get component data and set necessary variables
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 $stageImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-rc"
 
@@ -21,5 +22,6 @@ try {
     # Test using curl
     ##curl http://localhost:8080/ -X POST -v
 } finally {
+    # Workaround to remove dangling images
     docker-compose -f ./docker/docker-compose.yml down
 }
