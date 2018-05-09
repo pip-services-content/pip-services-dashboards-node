@@ -7,12 +7,12 @@ $ErrorActionPreference = "Stop"
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 
 # Login to npm
-if (-not (Test-Path env:NPM_USER)) {
-    npm login   
-} else {
-    npm install -g npm-cli-login
-    npm-cli-login
-}
+#if (-not (Test-Path env:NPM_USER)) {
+#    npm login   
+#} else {
+#    npm install -g npm-cli-login
+#    npm-cli-login
+#}
 
 # Configure git
 git config --global user.email "pipdevs@gmail.com" 
@@ -25,6 +25,8 @@ git add ./obj/*
 git add ./component.json
 git commit -m "project build by Travis CI [skip ci]"
 git push origin HEAD:master
+
+npm whoami
 
 # Publish to npm repository
 npm publish
