@@ -13,6 +13,15 @@ if (Test-Path "obj") {
     Remove-Item -Recurse -Force -Path "obj"
 }
 
+# Copy private keys to access git repo
+if (-not (Test-Path -Path "docker/id_rsa")) {
+    if ($env:GIT_PRIVATE_KEY -ne $null) {
+        Set-Content -Path "docker/id_rsa" -Value $env.GIT_PRIVATE_KEY
+    } else {
+        Copy-Item -Path "~/.ssh/id_rsa" -Destination "docker"
+    }
+}
+
 # Build docker image
 docker build -f docker/Dockerfile.build -t $buildImage .
 
