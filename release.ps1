@@ -21,8 +21,9 @@ git config --global user.name "pipdeveloper"
 git remote set-url "https://pipdeveloper:$($env:GITHUB_API_KEY)@github.com/pip-services-content/$($component.name).git"
 
 git add ./obj/*
+git add ./component.json
 git commit -m "project build by Travis CI [skip ci]"
-git push
+git push origin HEAD:master
 
 # Publish to npm repository
 npm publish

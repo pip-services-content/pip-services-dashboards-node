@@ -1,6 +1,6 @@
 {
     "name": "pip-services-dashboards-node",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "author": "Conceptual Vision Consulting LLC",
     "description": "Application dashboards microservice in Node.js",
     "contributors": [

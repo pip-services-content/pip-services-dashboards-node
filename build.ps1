@@ -20,3 +20,8 @@ docker build -f docker/Dockerfile.build -t $buildImage .
 docker create --name $container $buildImage
 docker cp "$($container):/app/obj" ./obj
 docker rm $container
+
+if (!(Test-Path ./obj)) {
+    Write-Host "obj folder doesn't exist in root dir. Build failed. Watch logs above."
+    exit 1
+}
