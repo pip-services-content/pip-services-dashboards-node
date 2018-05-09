@@ -16,7 +16,7 @@ if (Test-Path "obj") {
 # Copy private keys to access git repo
 if (-not (Test-Path -Path "docker/id_rsa")) {
     if ($env:GIT_PRIVATE_KEY -ne $null) {
-        Set-Content -Path "docker/id_rsa" -Value $env.GIT_PRIVATE_KEY
+        Set-Content -Path "docker/id_rsa" -Value $env:GIT_PRIVATE_KEY
     } else {
         Copy-Item -Path "~/.ssh/id_rsa" -Destination "docker"
     }
