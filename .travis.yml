@@ -13,7 +13,7 @@ branches:
 if: tag IS blank
 
 before_install:
-  #- sed -i -e 's/"build": [0-9]*/"build": '"$TRAVIS_BUILD_NUMBER"'/' component.json
+  - sed -i -e 's/"build": [0-9]*/"build": '"$TRAVIS_BUILD_NUMBER"'/' component.json
 
 install:
   - curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -27,11 +27,13 @@ script:
   - ./test.ps1
   - ./package.ps1
   - ./tag.ps1
-  #- echo "npm test temporarily disabled"
-
-deploy:
   - ./publish.ps1
   - ./release.ps1
+  #- echo "npm test temporarily disabled"
+
+#deploy:
+  #- ./publish.ps1
+  #- ./release.ps1
 
 after_script:
   - ./clean.ps1
