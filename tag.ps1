@@ -8,11 +8,13 @@ $component = Get-Content -Path "component.json" | ConvertFrom-Json
 $tag="v$($component.version)-$($component.build)"
 
 # Configure git
-git config --global user.email "pipdevs@gmail.com" 
-git config --global user.name "pipdeveloper" 
+if ($env:GIT_USER -ne $null -and $env:GIT_EMAIL -ne $null) {
+    git config --global user.name $env:GIT_USER
+    git config --global user.email $env:GIT_EMAIL
 
-git remote rm origin 
-git remote add origin "https://pipdeveloper:$($env:GITHUB_API_KEY)@github.com/pip-services-content/$($component.name).git"
+    git remote rm origin 
+    git remote add origin "https://$($env:GIT_USER):$($env:GITHUB_API_KEY)@github.com/pip-services-content/$($component.name).git"
+}
 
 git add ./obj/*
 git add ./component.json
