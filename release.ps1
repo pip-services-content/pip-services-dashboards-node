@@ -14,6 +14,8 @@ if ($component.version -ne $version) {
 # Automatically login to server
 if ($env:NPM_USER -ne $null -and $env:NPM_PASS -ne $null -and $env:NPM_EMAIL -ne $null) {
     npm-cli-login
+} elseif ($env:NPM_TOKEN -ne $null) {
+    Set-Content -Path ~/.npmrc -Value "//registry.npmjs.org/:_authToken=\$($env:NPM_TOKEN)"
 }
 
 # Publish to npm repository
