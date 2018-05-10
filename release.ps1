@@ -5,28 +5,16 @@ $ErrorActionPreference = "Stop"
 
 # Get component data
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
+$version = (Get-Content -Path package.json | ConvertFrom-Json).version
 
-# Login to npm
-#if (-not (Test-Path env:NPM_USER)) {
-#    npm login   
-#} else {
-#    npm install -g npm-cli-login
-#    npm-cli-login
-#}
+if ($component.version -ne $version) {
+    throw "Versions in component.json and package.json do not match"
+}
 
-# Configure git
-git config --global user.email "pipdevs@gmail.com" 
-git config --global user.name "pipdeveloper" 
-
-git remote rm origin 
-git remote add origin "https://pipdeveloper:$($env:GITHUB_API_KEY)@github.com/pip-services-content/$($component.name).git"
-
-git add ./obj/*
-git add ./component.json
-git commit -m "project build by Travis CI [skip ci]"
-git push origin HEAD:master
-
-npm whoami
+# Automatically login to server
+if ($env:NPM_USER -ne $null -and $env:NPM_PASS -ne $null -and $env:NPM_EMAIL -ne $null) {
+    npm-cli-login
+}
 
 # Publish to npm repository
 npm publish

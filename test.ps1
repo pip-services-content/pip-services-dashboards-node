@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 
 # Get component data and set necessary variables
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
-$testImage="$($component.registry)/$($component.name):$($component.version)-$($env:TRAVIS_BUILD_NUMBER)-test"
+$testImage="$($component.registry)/$($component.name):$($component.version)-$($component.build)-test"
 
 # Set environment variables
 $env:IMAGE = $testImage
