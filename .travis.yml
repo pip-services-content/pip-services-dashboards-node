@@ -12,10 +12,10 @@ branches:
 
 if: tag IS blank
 
-before_install:
-  - sed -i -e 's/"build": [0-9]*/"build": '"$TRAVIS_BUILD_NUMBER"'/' component.json
+#before_install:
 
 install:
+  - sed -i -e 's/"build": [0-9]*/"build": '"$TRAVIS_BUILD_NUMBER"'/' component.json
   - curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
   - curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
   - sudo apt-get update
