@@ -18,7 +18,7 @@ WORKDIR /app
 COPY package.json .
 
 # Install ALL node_modules, including 'devDependencies'
-RUN npm install
+RUN npm install --no-cache
 
 # Copy entire project
 COPY . .

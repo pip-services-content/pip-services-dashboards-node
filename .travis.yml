@@ -30,9 +30,5 @@ script:
   - ./publish.ps1
   - ./release.ps1
 
-#deploy:
-  #- ./publish.ps1
-  #- ./release.ps1
-
 after_script:
   - ./clean.ps1

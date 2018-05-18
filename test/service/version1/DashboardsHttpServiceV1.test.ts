@@ -64,7 +64,7 @@ suite('DashboardsHttpServiceV1', ()=> {
         async.series([
         // Get dashboard
             (callback) => {
-                rest.post('/dashboards/get_dashboard',
+                rest.post('/v1/dashboards/get_dashboard',
                     {
                         user_id: DASHBOARD.user_id,
                         app: DASHBOARD.app
@@ -86,7 +86,7 @@ suite('DashboardsHttpServiceV1', ()=> {
             (callback) => {
                 dashboard1.groups = [<TileGroupV1>{ index: 0, tiles: [] }];
 
-                rest.post('/dashboards/set_dashboard',
+                rest.post('/v1/dashboards/set_dashboard',
                     {
                         dashboard: dashboard1
                     },
