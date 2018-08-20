@@ -1,7 +1,7 @@
 /node_modules
 /npm-debug.log
 /.idea
-/data/dashboards.test.json
-/data/dashboards.json
+/data/Dashboards.test.json
+/data/Dashboards.json
 /obj/test
 /docker/id_rsa*

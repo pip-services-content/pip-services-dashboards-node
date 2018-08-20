@@ -1,10 +1,10 @@
 import { References } from 'pip-services-commons-node';
 import { Descriptor } from 'pip-services-commons-node';
 import { ConfigParams } from 'pip-services-commons-node';
-import { ConsoleLogger } from 'pip-services-commons-node';
+import { ConsoleLogger } from 'pip-services-components-node';
 import { ConfigException } from 'pip-services-commons-node';
-import { SenecaPlugin } from 'pip-services-net-node';
-import { SenecaInstance } from 'pip-services-net-node';
+import { SenecaPlugin } from 'pip-services-seneca-node';
+import { SenecaInstance } from 'pip-services-seneca-node';
 
 import { DashboardsMemoryPersistence } from '../persistence/DashboardsMemoryPersistence';
 import { DashboardsFilePersistence } from '../persistence/DashboardsFilePersistence';
