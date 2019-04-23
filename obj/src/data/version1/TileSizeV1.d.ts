@@ -1,5 +1,5 @@
 export declare class TileSizeV1 {
-    static readonly Small = "small";
-    static readonly Medium = "medium";
-    static readonly Large = "large";
+    static readonly Small: string;
+    static readonly Medium: string;
+    static readonly Large: string;
 }

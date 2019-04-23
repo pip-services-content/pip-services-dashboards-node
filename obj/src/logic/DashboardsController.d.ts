@@ -17,7 +17,7 @@ export declare class DashboardsController implements IConfigurable, IReferenceab
     configure(config: ConfigParams): void;
     setReferences(references: IReferences): void;
     getCommandSet(): CommandSet;
-    private makeDashboardId;
+    private makeDashboardId(userId, app, kind);
     getDashboards(correlationId: string, filter: FilterParams, paging: PagingParams, callback: (err: any, page: DataPage<DashboardV1>) => void): void;
     getDashboard(correlationId: string, userId: string, app: string, kind: string, callback: (err: any, item: DashboardV1) => void): void;
     setDashboard(correlationId: string, dashboard: DashboardV1, callback: (err: any, dashboard: DashboardV1) => void): void;
