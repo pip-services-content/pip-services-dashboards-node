@@ -1,6 +1,6 @@
 let process = require('process');
 
-import { ConfigParams } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services3-commons-node';
 
 import { DashboardsMongoDbPersistence } from '../../src/persistence/DashboardsMongoDbPersistence';
 import { DashboardsPersistenceFixture } from './DashboardsPersistenceFixture';

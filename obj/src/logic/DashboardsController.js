@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
 let async = require('async');
-const pip_services_commons_node_1 = require("pip-services-commons-node");
-const pip_services_commons_node_2 = require("pip-services-commons-node");
+const pip_services3_commons_node_1 = require("pip-services3-commons-node");
+const pip_services3_commons_node_2 = require("pip-services3-commons-node");
 const DashboardsCommandSet_1 = require("./DashboardsCommandSet");
 class DashboardsController {
     constructor() {
-        this._dependencyResolver = new pip_services_commons_node_2.DependencyResolver(DashboardsController._defaultConfig);
+        this._dependencyResolver = new pip_services3_commons_node_2.DependencyResolver(DashboardsController._defaultConfig);
     }
     configure(config) {
         this._dependencyResolver.configure(config);
@@ -65,6 +65,6 @@ class DashboardsController {
         this._persistence.deleteByFilter(correlationId, filter, callback);
     }
 }
-DashboardsController._defaultConfig = pip_services_commons_node_1.ConfigParams.fromTuples('dependencies.persistence', 'pip-services-dashboards:persistence:*:*:1.0');
+DashboardsController._defaultConfig = pip_services3_commons_node_1.ConfigParams.fromTuples('dependencies.persistence', 'pip-services-dashboards:persistence:*:*:1.0');
 exports.DashboardsController = DashboardsController;
 //# sourceMappingURL=DashboardsController.js.map

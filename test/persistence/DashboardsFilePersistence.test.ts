@@ -1,4 +1,4 @@
-import { ConfigParams } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services3-commons-node';
 
 import { DashboardsFilePersistence } from '../../src/persistence/DashboardsFilePersistence';
 import { DashboardsPersistenceFixture } from './DashboardsPersistenceFixture';
