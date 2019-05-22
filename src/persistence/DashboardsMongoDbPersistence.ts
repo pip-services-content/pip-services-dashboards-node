@@ -3,18 +3,18 @@ let _ = require('lodash');
 import { FilterParams } from 'pip-services3-commons-node';
 import { PagingParams } from 'pip-services3-commons-node';
 import { DataPage } from 'pip-services3-commons-node';
-import { IdentifiableMongoDbPersistence } from 'pip-services3-mongodb-node';
+import { IdentifiableMongoosePersistence } from 'pip-services3-mongoose-node';
 
 import { DashboardV1 } from '../data/version1/DashboardV1';
 import { IDashboardsPersistence } from './IDashboardsPersistence';
-import { DashboardsMongoDbSchema } from './DashboardsMongoDbSchema';
+import { DashboardsMongooseSchema } from './DashboardsMongooseSchema';
 
 export class DashboardsMongoDbPersistence 
-    extends IdentifiableMongoDbPersistence<DashboardV1, string> 
+    extends IdentifiableMongoosePersistence<DashboardV1, string> 
     implements IDashboardsPersistence {
 
     constructor() {
-        super('dashboards', DashboardsMongoDbSchema());
+        super('dashboards', DashboardsMongooseSchema());
     }
 
     private composeFilter(filter: FilterParams): any {

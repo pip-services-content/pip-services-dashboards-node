@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
 const pip_services3_commons_node_1 = require("pip-services3-commons-node");
-const pip_services3_mongodb_node_1 = require("pip-services3-mongodb-node");
-const DashboardsMongoDbSchema_1 = require("./DashboardsMongoDbSchema");
-class DashboardsMongoDbPersistence extends pip_services3_mongodb_node_1.IdentifiableMongoDbPersistence {
+const pip_services3_mongoose_node_1 = require("pip-services3-mongoose-node");
+const DashboardsMongooseSchema_1 = require("./DashboardsMongooseSchema");
+class DashboardsMongoDbPersistence extends pip_services3_mongoose_node_1.IdentifiableMongoosePersistence {
     constructor() {
-        super('dashboards', DashboardsMongoDbSchema_1.DashboardsMongoDbSchema());
+        super('dashboards', DashboardsMongooseSchema_1.DashboardsMongooseSchema());
     }
     composeFilter(filter) {
         filter = filter || new pip_services3_commons_node_1.FilterParams();
