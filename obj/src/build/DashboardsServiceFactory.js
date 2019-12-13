@@ -17,11 +17,11 @@ class DashboardsServiceFactory extends pip_services3_components_node_1.Factory {
         this.registerAsType(DashboardsServiceFactory.HttpServiceDescriptor, DashboardsHttpServiceV1_1.DashboardsHttpServiceV1);
     }
 }
+exports.DashboardsServiceFactory = DashboardsServiceFactory;
 DashboardsServiceFactory.Descriptor = new pip_services3_commons_node_1.Descriptor("pip-services-dashboards", "factory", "default", "default", "1.0");
 DashboardsServiceFactory.MemoryPersistenceDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-dashboards", "persistence", "memory", "*", "1.0");
 DashboardsServiceFactory.FilePersistenceDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-dashboards", "persistence", "file", "*", "1.0");
 DashboardsServiceFactory.MongoDbPersistenceDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-dashboards", "persistence", "mongodb", "*", "1.0");
 DashboardsServiceFactory.ControllerDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-dashboards", "controller", "default", "*", "1.0");
 DashboardsServiceFactory.HttpServiceDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-dashboards", "service", "http", "*", "1.0");
-exports.DashboardsServiceFactory = DashboardsServiceFactory;
 //# sourceMappingURL=DashboardsServiceFactory.js.map

@@ -65,6 +65,6 @@ class DashboardsController {
         this._persistence.deleteByFilter(correlationId, filter, callback);
     }
 }
-DashboardsController._defaultConfig = pip_services3_commons_node_1.ConfigParams.fromTuples('dependencies.persistence', 'pip-services-dashboards:persistence:*:*:1.0');
 exports.DashboardsController = DashboardsController;
+DashboardsController._defaultConfig = pip_services3_commons_node_1.ConfigParams.fromTuples('dependencies.persistence', 'pip-services-dashboards:persistence:*:*:1.0');
 //# sourceMappingURL=DashboardsController.js.map
